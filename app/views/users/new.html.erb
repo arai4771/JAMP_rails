@@ -1,0 +1,24 @@
+<div class="container text-center">
+
+<h1>新規登録</h1>
+<p>中をほんの少し覗きたい方は新規登録せずにログイン画面からゲストとして入場してください！</p>
+<div class="text-danger">
+<% @user.errors.full_messages.each do |message| %>
+
+   <%= message %>
+<% end %>
+</div>
+<%= form_tag("/users/create") do %>
+
+<p><span class="w-color">名前</span></p>
+<input name="name" value="<%= @user.name %>"><br><br>
+<p><span class="w-color">パスワード</span></p>
+<input name="password" value="<%= @user.password %>"><br><br>
+<p><span class="w-color">日本一周後は何をしている？</span></p>
+<textarea name="career" rows="15" class="w-100"><%= @user.career %></textarea><br><br><br>
+
+
+<input type="submit" value="新規登録" class="btn btn-primary">
+
+<% end %>
+</div>

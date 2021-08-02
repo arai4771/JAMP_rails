@@ -1,0 +1,24 @@
+<div class="container">
+<h1 class="text-center w-color">みんなのコメント</h1>
+
+<ul class="list-group list-inline">
+<% @posts.each do |post| %>
+
+    <li class="list-group-item list-group-item-action ">
+
+     <img src="<%= "/user_images/#{post.user.image_name}" %>" style="width:100px; height:100px;" class="rounded-circle">
+     
+     
+     <ul class="list-inline-item list-unstyled mx-4">
+     <li class="font-weight-bold"><h5><%= link_to(post.user.name, "/users/#{post.user.id}") %></h5></li>
+
+    
+
+    <li ><%= link_to(post.content,"/posts/#{post.id}",{class: "text-dark"}) %></li>
+    </ul>
+    </li>
+
+ <% end %>
+<ul>
+
+</div>

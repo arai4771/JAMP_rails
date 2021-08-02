@@ -1,0 +1,22 @@
+<h1 class="w-color text-center">ユーザー一覧</h1>
+<div class="container">
+<ul class="list-group list-inline ">
+<% @user.each do |users| %>
+<div class="row mx-auto border border-secondary w-100 text-md-left " >
+  <%# <div class="col-sm-2 col-xs-10">
+    <img src="/assets/defo.jpeg" alt="" style="width:80px; height:80px;">
+  </div> %>
+  <div class="col-12 py-2 text-center">
+    <img src="<%= "/user_images/#{users.image_name}" %>" style="width:100px;height:100px;"  class="rounded-circle"><br>
+    
+    <li class="list-group-item list-group-item-action;" style="background-color:#f6ab00;"><h5><%= link_to("#{users.name}","/users/#{users.id}",{class: "text-white"})%></h5></li>
+    
+    <li class="list-group-item list-group-item-action "><p><%= auto_link(simple_format(users.career), html: {target: '_blank'}) %></p></li>
+
+
+  </div>
+</div>
+
+ <% end %>
+ </ul>
+</div>

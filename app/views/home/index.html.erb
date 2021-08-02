@@ -1,0 +1,15 @@
+ <% @data.each do |datas| %>
+<div class="container">
+<div class="row mx-auto border border-secondary text-center text-md-left" style="width:100%; margin:20px 0;">
+  <div class="col-sm-2 col-xs-10">
+    <img src="/assets/defo.jpeg" alt="" style="width:80px; height:80px;">
+  </div>
+  
+  <div class="col-sm-5 col-xs-10 ">
+    <p><%= datas.id %>名前：<%= datas.name %></p>
+    <p>日本一周後：<br><%= datas.career %></p>
+  </div>
+</div>
+
+</div>
+ <% end %>

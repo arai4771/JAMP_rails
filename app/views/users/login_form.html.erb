@@ -1,0 +1,20 @@
+<div class="container text-center">
+
+<h1 class="w-color">ログインページ</h1>
+<p>あなたの名前とパスワードを入力してください</p>
+<p>ゲストで入場したい方は<br>・名前「ゲスト」<br>・パスワード「ゲスト」<br>で入場してください！</p>
+<div class="text-danger">
+<% if @error_message %>
+  <%= @error_message %>
+<% end %>
+</div>
+<%= form_tag("/login") do %>
+<p ><span class="w-color">名前</span></p>
+<input type="name" name="name" value="<%= @naem%>"><br><br>
+
+<p><span class="w-color">パスワード</span></p>
+<input type="password" name="password" value="<%= @password%>"><br><br>
+
+<input type="submit" value="ログイン" class="btn btn-primary">
+<% end %>
+</div>

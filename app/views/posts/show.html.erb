@@ -1,0 +1,38 @@
+<div class="container">
+<h1 class="text-center w-color">コメント詳細</h1>
+
+<div>
+<ul class="list-item mx-auto" style="padding-left:0;">
+<li class="list-group-item w-100">
+
+ <img src="<%= "/user_images/#{@user.image_name}" %>" style="width:100px; height:100px;" class="rounded-circle">
+<ul class="list-inline-item list-unstyled mx-4">
+<li><%= link_to(@user.name, "/users/#{@user.id}") %></li>
+
+<li><%= @post.content %></li>
+</ul>
+<br><br>
+
+<%= @post.created_at %>
+
+<% if @post.user.id == @current_user.id %>
+<%= link_to("編集","/posts/#{@post.id}/edit") %>
+<%= link_to("削除","/posts/#{@post.id}/destroy",{method:"post",data: { confirm: "コメントを消してもいいですか？" }}) %>
+<% end %>
+
+
+<% if Like.find_by(user_id: @current_user.id, post_id: @post.id) %>
+        <!-- 以下の1行をdestroyアクションへのリンクに書き換えてください -->
+      <span class="fa fa-heart" style="color:red;"></span>
+<% else %>
+        <%= link_to("/likes/#{@post.id}/create", {method: "post"}) do %>            
+            <span class="fa fa-heart " style="color:gray;"></span>            
+         <% end %>
+<% end %>
+<%= @likes_count %>
+</li>
+</ul>
+</div>
+
+
+</div>

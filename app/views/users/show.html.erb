@@ -1,0 +1,51 @@
+<div class="container  text-center">
+<h1 class="w-color">プロフィール</h1>
+
+<div class="bg-white py-3">
+
+
+<img src="<%= "/user_images/#{@user.image_name}" %>" class="rounded-circle" style="width:100px;height:100px;">
+
+<h2><%= @user.name %></h2>
+
+<p><%= auto_link(simple_format(@user.career), html: {target: '_blank'}) %></p>
+
+
+
+<% if @user.id == @current_user.id %>
+
+<%= link_to("編集","/users/#{@user.id}/edit") %>
+<%# <%= link_to("削除","/users/#{@user.id}/destroy",{method:"post",data: { confirm: "ユーザー情報を消してもいいですか？" }}) %> 
+<% end %>
+
+</div>
+</div>
+<div class="container">
+<ul class="list-group text-center">
+      <li class="list-group-item  active w-50"><%= link_to("投稿ページ", "/users/#{@user.id}",{class:  "text-white"}) %></li>
+      <li class="list-group-item w-50"><%= link_to("いいね!ページ", "/users/#{@user.id}/likes",{class:  "text-dark"}) %></li>
+</ul>
+
+<ul class="list-group list-inline">
+<% @user.posts.each do |post| %>
+
+    <li class="list-group-item list-group-item-action ">
+
+     <img src="<%= "/user_images/#{post.user.image_name}" %>" style="width:100px; height:100px; " class="rounded-circle">
+     
+     
+     <ul class="list-inline-item list-unstyled mx-4">
+     <h5><li class="font-weight-bold"><%= link_to(post.user.name, "/users/#{post.user.id}") %></li></h5>
+
+    
+
+    <li ><%= link_to(post.content,"/posts/#{post.id}",{class: "text-dark"}) %></li>
+    </ul>
+    </li>
+
+ <% end %>
+<ul>
+
+
+
+</div>

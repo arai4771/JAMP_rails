@@ -1,0 +1,17 @@
+<div class="container text-center"> 
+<h1 class="w-color">投稿してみよう </h1>
+
+<div class="text-danger">
+<% @post.errors.full_messages.each do |message| %>
+  <%= message %>
+<% end %>
+</div>
+<%= form_tag("/posts/create") do %>
+
+<textarea name="content" class="w-75 " rows="10"><%= @post.content %></textarea><br>
+<input type="submit" value="投稿" class="btn btn-primary my-3">
+<% end %>
+
+
+
+</div>
